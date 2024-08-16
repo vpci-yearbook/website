@@ -1,0 +1,43 @@
+fix yb display
+about page
+
+figure out picture upload flow
+different for qualified yb photographers vs random students
+yb photographers can just continue to upload photos to herff jones
+
+otherwise, what we need are these items:
+photo file(s)
+who's uploading?
+quick photo context desc
+
+
+homepage content. sell the site to them
+- hero: show visually that this is a photo gallery with photo upload. collage with + button
+"HOME OF
+MEMORIES @ VPCI"
+"view and upload photos year-round on vp's official photo gallery."
+
+- 1st section
+describe problems:
+1. yb being a once-a-year thing.
+2. limited opportunities for contribution. there's the huge filter of 'you need photography/design skills and you need to make an application and you need to do a bunch of work and adhere to all our deadlines etc.' if you want to make any contribution to the yb
+3. limited representation in the yb. e.g. including enough photos of academics + 9th graders was a struggle last year because most of our photos were of gr. 10, 11, 12 ib students
+
+- 2nd section:
+how do we address these problems?
+1. we're making a platform to serve students year-round.
+2. any student can make regular micro-contributions through our platform.
+3. students can upload their own photos, ensuring that they can make it into the yb even if they don't do clubs and aren't friends with our photographers lol
+
+- 3rd section:
+benefits
+1. they could see the really nice pic in their camera roll end up in the yb
+2. can view our photos digitally
+3. have access to a gallery of all our photos in the first place (i think it's p fun to just look through the yb photos lol)
+
+- 4th section:
+key features:
+photo upload allows any student to upload a photo that could potentially make it to the yb.
+comprehensive gallery of photos, regularly updated, accessible year-round
+
+admin dash
