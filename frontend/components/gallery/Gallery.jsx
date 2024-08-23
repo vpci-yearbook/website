@@ -1,54 +1,42 @@
-import React from 'react'
+"use client"
 
-const Photos = () => {
+import React, { useEffect, useState } from 'react';
+
+export default function Photos() {
+  const [images, setImages] = useState([]);
+  const ngrokUrl = 'https://0a9b-162-221-127-80.ngrok-free.app';
+
+  useEffect(() => {
+    const fetchPreviews = async () => {
+      try {
+        console.log('fetchPreview()')
+        const response = await fetch('/api/images/previews');
+        const data = await response.json();
+        setImages(data);
+      } catch (error) {
+        console.error('Error fetching image previews:', error);
+      }
+    };
+
+    fetchPreviews();
+  }, []);
+
+  console.log('images', images);
+
   return (
-    <div className="-mt-10 max-w-screen-xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div className="grid gap-4">
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg" alt="" />
+    <div className="container mx-auto">
+      <div className="grid grid-cols-3 gap-4">
+        {images.map((image) => (
+          <div key={image.file_id} className="p-2">
+            {console.log(image)}
+            <img
+              src={`${ngrokUrl}/images/${image.file_id}/preview`}
+              alt={image.filename}
+              className="w-full h-auto"
+            />
           </div>
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg" alt="" />
-          </div>
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg" alt="" />
-          </div>
+        ))}
       </div>
-      <div className="grid gap-4">
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg" alt="" />
-          </div>
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg" alt="" />
-          </div>
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg" alt="" />
-          </div>
-      </div>
-      <div className="grid gap-4">
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg" alt="" />
-          </div>
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg" alt="" />
-          </div>
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg" alt="" />
-          </div>
-      </div>
-      <div className="grid gap-4">
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg" alt="" />
-          </div>
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg" alt="" />
-          </div>
-          <div>
-              <img className="h-auto max-w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg" alt="" />
-          </div>
-      </div>
-  </div>
-  )
+    </div>
+  );
 }
-
-export default Photos
