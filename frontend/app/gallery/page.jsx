@@ -9,7 +9,7 @@ const Gallery = () => {
     <div>
       <Nav />
       <Header />
-      <div className='max-w-screen-xl mx-auto grid grid-cols-2'>
+      <div className='max-w-screen-xl mx-auto grid grid-cols-[1fr_3fr] gap-4'>
         <Filter />
         <Photos />
       </div>
