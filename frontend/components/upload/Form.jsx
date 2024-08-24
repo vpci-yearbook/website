@@ -1,32 +1,13 @@
-import React, { useState } from 'react'
-import { Label } from '../ui/label'
-import { Input } from '../ui/input'
-import { Button } from '../ui/button'
+import React from 'react';
+import { Label } from '../ui/label';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
+import { Textarea } from "@/components/ui/textarea";
 
-const Form = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    name: '',
-    photoContext: ''
-  })
-
-  const handleChange = (e) => {
-    const { id, value } = e.target
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value
-    }))
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    console.log('formData', formData);
-  }
-
+const Form = ({ formData, handleInputChange, handleUpload }) => {
   return (
     <div className="flex items-center justify-center py-12">
-      <form onSubmit={handleSubmit} className="mx-auto grid w-[450px] gap-6">
+      <form onSubmit={handleUpload} className="mx-auto grid w-[450px] gap-6">
         <div className="grid gap-2">
           <h1 className="text-4xl font-bold">UPLOAD PHOTOS</h1>
         </div>
@@ -40,7 +21,7 @@ const Form = () => {
                 placeholder="m@example.com"
                 required
                 value={formData.email}
-                onChange={handleChange}
+                onChange={handleInputChange}
               />
             </div>
             <div className="grid gap-2">
@@ -51,18 +32,18 @@ const Form = () => {
                 placeholder="Alec Li"
                 required
                 value={formData.name}
-                onChange={handleChange}
+                onChange={handleInputChange}
               />
             </div>
           </div>
           <div className="grid gap-2">
             <Label htmlFor="photoContext">Photo context</Label>
-            <Input
+            <Textarea
               id="photoContext"
-              type="text"
+              placeholder='e.g. "me and my friend joe"'
               required
               value={formData.photoContext}
-              onChange={handleChange}
+              onChange={handleInputChange}
             />
           </div>
           <Button type="submit" className="w-full">
@@ -71,7 +52,7 @@ const Form = () => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;
