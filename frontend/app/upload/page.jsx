@@ -5,6 +5,7 @@ import Form from '@/components/upload/Form';
 import Uploader from '@/components/upload/Uploader';
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useToast } from "@/components/ui/use-toast";
 
 const Upload = () => {
   const [file, setFile] = useState(null);
@@ -14,6 +15,8 @@ const Upload = () => {
     photoContext: '',
     tags: []
   });
+  const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -36,8 +39,9 @@ const Upload = () => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-
     if (!file) return;
+
+    setLoading(true);
 
     const uploadData = new FormData();
     uploadData.append('file', file);
@@ -53,8 +57,24 @@ const Upload = () => {
         },
       });
       console.log('File uploaded successfully:', response.data);
+      
+      toast({
+        title: "Upload Successful",
+        description: "Your file has been uploaded successfully.",
+      });
+
+      setFormData({
+        email: '',
+        name: '',
+        photoContext: '',
+        tags: []
+      });
+      setFile(null);
+
     } catch (error) {
       console.error('Error uploading file:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -63,7 +83,14 @@ const Upload = () => {
       <Nav />
       <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
         <Uploader file={file} handleFileChange={handleFileChange} />
-        <Form formData={formData} setFormData={setFormData} handleInputChange={handleInputChange} handleTagsChange={handleTagsChange} handleUpload={handleUpload} />
+        <Form
+          formData={formData}
+          setFormData={setFormData}
+          handleInputChange={handleInputChange}
+          handleTagsChange={handleTagsChange}
+          handleUpload={handleUpload}
+          loading={loading}
+        />
       </div>
     </>
   );

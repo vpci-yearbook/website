@@ -34,7 +34,7 @@ export default function Photos() {
             <img
               src={`${ngrokUrl}/images/${image.file_id}/preview`}
               alt={image.filename}
-              className="w-full h-auto"
+              className="h-full w-auto"
             />
           </div>
         ))}

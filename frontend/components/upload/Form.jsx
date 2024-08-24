@@ -3,10 +3,11 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Textarea } from "@/components/ui/textarea";
-import { tagOptions } from '@/data';
 import Select from 'react-select'
+import { tagOptions } from '@/data';
+import { Loader2 } from "lucide-react"
 
-const Form = ({ formData, setFormData, handleInputChange, handleTagsChange, handleUpload }) => {
+const Form = ({ formData, handleInputChange, handleTagsChange, handleUpload, loading }) => {
   return (
     <div className="flex items-center justify-center py-12">
       <form onSubmit={handleUpload} className="mx-auto grid w-[450px] gap-6">
@@ -59,8 +60,12 @@ const Form = ({ formData, setFormData, handleInputChange, handleTagsChange, hand
               onChange={handleTagsChange}
             />
           </div>
-          <Button type="submit" className="w-20">
-            Submit
+          <Button type="submit" className="w-20" disabled={loading}>
+            {loading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+              </>
+            ) : 'Submit'}
           </Button>
         </div>
       </form>
