@@ -24,7 +24,7 @@ export default function Photos() {
 
   return (
     <div className="mx-auto">
-      <div className="grid grid-cols-3 gap-4">
+      <div className="flex flex-row">
         {images.map((image) => (
           <div
             key={image.file_id}
