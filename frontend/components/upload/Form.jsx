@@ -3,8 +3,10 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Textarea } from "@/components/ui/textarea";
+import { tagOptions } from '@/data';
+import Select from 'react-select'
 
-const Form = ({ formData, handleInputChange, handleUpload }) => {
+const Form = ({ formData, setFormData, handleInputChange, handleTagsChange, handleUpload }) => {
   return (
     <div className="flex items-center justify-center py-12">
       <form onSubmit={handleUpload} className="mx-auto grid w-[450px] gap-6">
@@ -46,7 +48,18 @@ const Form = ({ formData, handleInputChange, handleUpload }) => {
               onChange={handleInputChange}
             />
           </div>
-          <Button type="submit" className="w-full">
+          <div className="grid gap-2">
+            <Label htmlFor="tags">Tags</Label>
+            <Select
+              isMulti
+              name="tags"
+              options={tagOptions}
+              className="w-full"
+              value={formData.tags}
+              onChange={handleTagsChange}
+            />
+          </div>
+          <Button type="submit" className="w-20">
             Submit
           </Button>
         </div>

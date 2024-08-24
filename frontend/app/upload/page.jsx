@@ -11,7 +11,8 @@ const Upload = () => {
   const [formData, setFormData] = useState({
     email: '',
     name: '',
-    photoContext: ''
+    photoContext: '',
+    tags: []
   });
 
   const handleFileChange = (event) => {
@@ -26,6 +27,13 @@ const Upload = () => {
     }));
   };
 
+  const handleTagsChange = (selectedOption) => {
+    setFormData(prevState => ({
+      ...prevState,
+      tags: selectedOption
+    }));
+  };
+
   const handleUpload = async (e) => {
     e.preventDefault();
 
@@ -36,6 +44,7 @@ const Upload = () => {
     uploadData.append('email', formData.email);
     uploadData.append('name', formData.name);
     uploadData.append('photo_context', formData.photoContext);
+    uploadData.append('tags', formData.tags.map(tag => tag.value).join(','));  // Convert tags array to comma-separated string
 
     try {
       const response = await axios.post('https://0a9b-162-221-127-80.ngrok-free.app/upload/', uploadData, {
@@ -54,7 +63,7 @@ const Upload = () => {
       <Nav />
       <div className="w-full lg:grid lg:min-h-[600px] lg:grid-cols-2 xl:min-h-[800px]">
         <Uploader file={file} handleFileChange={handleFileChange} />
-        <Form formData={formData} handleInputChange={handleInputChange} handleUpload={handleUpload} />
+        <Form formData={formData} setFormData={setFormData} handleInputChange={handleInputChange} handleTagsChange={handleTagsChange} handleUpload={handleUpload} />
       </div>
     </>
   );
