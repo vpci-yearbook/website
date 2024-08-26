@@ -3,8 +3,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import { Button } from '@/components/ui/button';
 
 const AdminPage = () => {
+    const ngrokUrl = 'https://0a9b-162-221-127-80.ngrok-free.app';
+  
     const [photos, setPhotos] = useState([]);
     const [password, setPassword] = useState('');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,9 +15,10 @@ const AdminPage = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            axios.get('/api/unapproved-images', { params: { password } })
+            axios.get('/api/images/unapproved-images', { params: { password } })
                 .then((res) => setPhotos(res.data))
-                .catch(() => {
+                .catch((error) => {
+                    console.log(error);
                     router.push('/');
                 });
         }
@@ -31,7 +35,7 @@ const AdminPage = () => {
 
     const approvePhoto = async (file_id) => {
         try {
-            await axios.post(`/api/approve-photo/${file_id}`, null, { params: { password } });
+            await axios.post(`/api/approve-photo/${file_id}`);
             setPhotos(photos.filter((photo) => photo.file_id !== file_id));
         } catch (error) {
             console.error('Error approving photo', error);
@@ -53,13 +57,15 @@ const AdminPage = () => {
         );
     }
 
+    console.log('photos', photos);
+
     return (
         <div>
             <h1>Admin Approval</h1>
-            {photos.map((photo) => (
+            {photos && photos.map((photo) => (
                 <div key={photo.file_id}>
-                    <img src={`/api/images/${photo.file_id}/preview`} alt={photo.filename} />
-                    <button onClick={() => approvePhoto(photo.file_id)}>Approve</button>
+                    <img src={`${ngrokUrl}/images/${photo.file_id}/preview`} alt={photo.filename} />
+                    <Button onClick={() => approvePhoto(photo.file_id)}>Approve</Button>
                 </div>
             ))}
         </div>
