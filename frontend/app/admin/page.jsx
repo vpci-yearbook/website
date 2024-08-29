@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 const AdminPage = () => {
     const ngrokUrl = 'https://0a9b-162-221-127-80.ngrok-free.app';
@@ -44,15 +45,16 @@ const AdminPage = () => {
 
     if (!isAuthenticated) {
         return (
-            <div>
+            <div className='p-4'>
                 <h1>Admin Login</h1>
-                <input
+                <Input
                     type="password"
                     placeholder="Enter admin password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className="w-80 my-4"
                 />
-                <button onClick={handleLogin}>Login</button>
+                <Button onClick={handleLogin}>Login</Button>
             </div>
         );
     }
@@ -60,11 +62,15 @@ const AdminPage = () => {
     console.log('photos', photos);
 
     return (
-        <div>
+        <div className='p-4'>
             <h1>Admin Approval</h1>
+            {!photos.length && <p>No photos to approve.</p>}
             {photos && photos.map((photo) => (
                 <div key={photo.file_id}>
                     <img src={`${ngrokUrl}/images/${photo.file_id}/preview`} alt={photo.filename} />
+                    <p>
+                        {JSON.stringify(photo)}
+                    </p>
                     <Button onClick={() => approvePhoto(photo.file_id)}>Approve</Button>
                 </div>
             ))}

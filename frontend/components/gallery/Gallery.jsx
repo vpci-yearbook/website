@@ -45,23 +45,24 @@ export default function Photos({ selectedTags }) {
 
     images.forEach((image) => {
       const aspectRatio = image['preview_width'] / image['preview_height'];
-      const adjustedWidth = aspectRatio * targetRowHeight;
+      const imageWidth = image['preview_width'];
 
-      if (currentRowWidth + adjustedWidth <= containerWidth) {
+      if (currentRowWidth + imageWidth <= containerWidth) {
         currentRow.push(image);
-        currentRowWidth += adjustedWidth;
+        currentRowWidth += imageWidth;
       } else {
-        const rowHeight = targetRowHeight * (containerWidth / currentRowWidth);
-        rows.push({ images: currentRow, height: rowHeight });
+        const scalingFactor = containerWidth / currentRowWidth;
+        
+        rows.push({ images: currentRow, scalingFactor });
         
         currentRow = [image];
-        currentRowWidth = adjustedWidth;
+        currentRowWidth = imageWidth;
       }
     });
 
     if (currentRow.length > 0) {
-      const rowHeight = targetRowHeight * (containerWidth / currentRowWidth);
-      rows.push({ images: currentRow, height: rowHeight });
+      const scalingFactor = containerWidth / currentRowWidth;
+      rows.push({ images: currentRow, scalingFactor });
     }
 
     return rows;
