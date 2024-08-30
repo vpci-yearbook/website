@@ -10,8 +10,8 @@ const Section3 = () => {
 
   return (
     <section class="bg-white dark:bg-gray-900">
-      <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 lg:py-16 grid-cols-2">
-          <div class="place-self-center">
+      <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 flex flex-col-reverse md:flex-row sm:py-16 lg:px-6">
+        <div class="flex-1 place-self-center">
               <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black">
                 UPLOAD YOUR PHOTOS
               </h1>
@@ -20,7 +20,7 @@ const Section3 = () => {
               </p>
           </div>
           <div 
-            className="w-full relative cursor-pointer"
+            className="w-full relative cursor-pointer flex-1"
             onClick={() => router.push(`/upload`)}            
           >
             <img class="w-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image" />

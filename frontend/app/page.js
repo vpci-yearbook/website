@@ -10,7 +10,7 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div className='bg-slate-100'>
+    <div className=''>
       <Nav />
       <Hero />
       <div className='mx-auto max-w-7xl mt-8 px-6 lg:px-8 flex flex-row justify-end items-center'>
