@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from '../ui/button'
+import { Dot } from 'lucide-react'
 
 const Section1 = () => {
   return (
@@ -19,7 +20,7 @@ const Section1 = () => {
             </div>
           </div>
           <div className='flex flex-col gap-8'>
-            <p className="mt-6 text-lg leading-8 text-gray-600">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
+            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.</p>
             <Button className='w-20 rounded-full' size='lg'>Button</Button>
           </div>
         </div>
