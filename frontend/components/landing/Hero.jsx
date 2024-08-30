@@ -1,5 +1,6 @@
 "use client"
 
+import { CircleArrowRight } from 'lucide-react';
 import React, { useEffect, useState, useRef } from 'react';
 import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
@@ -35,8 +36,8 @@ const Photos = ({ scrollPosition }) => {
     let currentRowWidth = 0;
 
     images.forEach((image) => {
-      const resizedWidth = image['preview_width'] / 4;
-      const resizedHeight = image['preview_height'] / 4;
+      const resizedWidth = image['preview_width'] / 3;
+      const resizedHeight = image['preview_height'] / 3;
       const aspectRatio = resizedWidth / resizedHeight;
 
       if (currentRowWidth + resizedWidth <= containerWidth) {
@@ -61,12 +62,13 @@ const Photos = ({ scrollPosition }) => {
   return (
     <>
       <section className="bg-black dark:bg-white py-10">
-        <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+        <div className="grid max-w-screen-2xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div className="mr-auto place-self-center lg:col-span-7">
-                <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white dark:text-black">HOME OF <br /> MEMORIES @ VP</h1>
-                <p className="max-w-2xl mb-6 font-light text-gray-400 lg:mb-8 md:text-lg dark:text-black">View and upload photos year-round on VP's official photo gallery.</p>
-                <a href="/gallery" className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border border-gray-700 rounded-lg hover:bg-gray-700 focus:ring-4 focus:ring-gray-700 dark:text-black dark:border-gray-300 dark:hover:bg-gray-100 dark:focus:ring-gray-100">
-                    Go to Gallery
+                <h1 className="max-w-2xl mb-8 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white dark:text-black">HOME OF <br /> MEMORIES @ VP</h1>
+                <p className="max-w-2xl mb-4 font-light text-gray-400 lg:mb-4 md:text-lg dark:text-black">View and upload photos year-round on VP's official photo gallery.</p>
+                <a href="/gallery" className="inline-flex items-center justify-center py-3 text-base font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-gray-700 dark:focus:ring-gray-100">
+                    <div className='bg-white h-[0.2px] w-40'/>
+                    <span className='ml-2'><CircleArrowRight /></span>
                 </a> 
             </div>
             <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
@@ -74,7 +76,7 @@ const Photos = ({ scrollPosition }) => {
         </div>
       </section>      
 
-      <div ref={containerRef} className="-mt-10 max-w-screen-xl mx-auto">
+      <div ref={containerRef} className="-mt-10 mb-10 max-w-screen-2xl mx-auto">
         {calculateRows(images).map((row, rowIndex) => (
           <div key={rowIndex} className="flex flex-row mb-4">
             {row.images.map((image) => (

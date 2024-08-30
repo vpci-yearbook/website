@@ -17,8 +17,11 @@ const Section2 = () => {
             <img class="w-full" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup.svg" alt="dashboard image" />
             <div className='absolute -bottom-4 -left-4 bg-black p-4'>
               <p className='text-white text-xl'>
-                CHECK OUT THE GALLERY!
-                <span>
+                CHECK OUT 
+                <br />
+                THE GALLERY!
+                <span className='mt-2 flex flex-row items-center gap-2'>
+                  <div className='bg-white h-[0.2px] w-16'/>
                   <CircleArrowRight color='white'/>
                 </span>
               </p>
