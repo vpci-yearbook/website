@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { LazyLoadImage, trackWindowScroll } from 'react-lazy-load-image-component';
 
-export default function Photos({ selectedTags }) {
+const Photos = ({ selectedTags, scrollPosition }) => {
   const [groupedImages, setGroupedImages] = useState([]);
   const [containerWidth, setContainerWidth] = useState(0);
   const containerRef = useRef(null);
@@ -94,10 +95,13 @@ export default function Photos({ selectedTags }) {
                     className="p-2 cursor-pointer"
                     onClick={() => router.push(`/gallery/${image.file_id}`)}
                   >
-                    <img
+                    <LazyLoadImage
                       src={`${ngrokUrl}/images/${image.file_id}/preview`}
                       alt={image.filename}
-                      style={{ height: row.height, width: 'auto' }}
+                      style={{
+                        width: image['preview_width'] * row.scalingFactor,
+                        height: image['preview_height'] * row.scalingFactor
+                      }}
                     />
                   </div>
                 ))}
@@ -109,3 +113,5 @@ export default function Photos({ selectedTags }) {
     </div>
   );
 }
+
+export default trackWindowScroll(Photos);
