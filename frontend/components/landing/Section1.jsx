@@ -1,33 +1,53 @@
 import React from 'react'
 import { Button } from '../ui/button'
-import { Dot } from 'lucide-react'
+import { CircleArrowRight, Dot } from 'lucide-react'
+import Link from 'next/link'
 
 const Section1 = () => {
   return (
-    <div className="overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-8 md:pb-16">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pr-8 lg:pt-4">
-            <div className="lg:max-w-lg">
-              <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black">YEARBOOK, YEAR-ROUND.</h1>
-            </div>
+    <section class="bg-white dark:bg-gray-900">
+      <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+          <div class="max-w-screen-md mb-8 lg:mb-16">
+            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black">
+              HOW IT WORKS
+            </h1>
+            <span className="mt-2 flex flex-row items-center gap-2">
+              LEARN MORE
+              <span className="bg-black h-[0.2px] w-16" />
+              <CircleArrowRight color="black" />
+            </span>
           </div>
-        </div>
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-          <div className="lg:pr-8 lg:pt-4">
-            <div className="lg:max-w-lg">
-              <img src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png" alt="Product screenshot" className="max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-full h-60 md:-ml-4 lg:-ml-0" />
-            </div>
+          <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+              <div>
+                  <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-neutral-200 lg:h-12 lg:w-12 dark:bg-primary-900">
+                      <h2 className='font-extrabold'>1</h2>
+                  </div>
+                  <h3 class="mb-2 text-xl font-bold dark:text-white">Submit your photos</h3>
+                  <p class="text-gray-500 dark:text-gray-400">
+                    Go to <Link href={'/upload'} className='text-blue-600'>Upload</Link> to submit photos of your club activities, classes, or school events.
+                  </p>
+              </div>
+              <div>
+                  <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-neutral-200 lg:h-12 lg:w-12 dark:bg-primary-900">
+                    <h2 className='font-extrabold'>2</h2>
+                  </div>
+                  <h3 class="mb-2 text-xl font-bold dark:text-white">We put them in our gallery</h3>
+                  <p class="text-gray-500 dark:text-gray-400">
+                    We'll take a quick look at your photos to ensure they meet our guidelines before we allow them in <Link href={'/upload'} className='text-blue-600'>our gallery!</Link>
+                  </p>
+              </div>
+              <div>
+                  <div class="flex justify-center items-center mb-4 w-10 h-10 rounded-full bg-neutral-200 lg:h-12 lg:w-12 dark:bg-primary-900">
+                   <h2 className='font-extrabold'>3</h2>
+                  </div>
+                  <h3 class="mb-2 text-xl font-bold dark:text-white">We put them in the yearbook!</h3>
+                  <p class="text-gray-500 dark:text-gray-400">
+                    All photos in our gallery will be considered for placement in the yearbook.
+                  </p>
+              </div>
           </div>
-          <div className='flex flex-col gap-8'>
-            <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              Ever felt like the yearbook just wasn’t enough? It’s only released once a year, and let’s face it, you’re only interested in photos of you and your friends, but those are few and far between. It’s time for a change.
-            </p>
-            <Button className='w-24 p-2 rounded-full'>Learn more</Button>
-          </div>
-        </div>
       </div>
-    </div>
+    </section>  
   )
 }
 

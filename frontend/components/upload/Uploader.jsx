@@ -16,7 +16,7 @@ import {
 const Uploader = ({ files, handleFileChange, setFiles }) => {
 
   return (
-    <div className='w-full flex items-center justify-center py-12 px-4 py-8 mx-auto'>
+    <div className='w-full flex items-center justify-center py-2 mx-auto'>
       <Card className='w-full'>
         <CardHeader>
           <CardTitle>Add files</CardTitle>

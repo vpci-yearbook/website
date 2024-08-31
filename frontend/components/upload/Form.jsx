@@ -9,11 +9,8 @@ import { Loader2 } from "lucide-react"
 
 const Form = ({ formData, handleInputChange, handleTagsChange, handleUpload, loading }) => {
   return (
-    <div className="flex items-center justify-center py-12">
+    <div className="flex items-center justify-center pt-6">
       <form onSubmit={handleUpload} className="mx-auto grid w-full gap-6">
-        <div className="grid gap-2">
-          <h1 className="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black">UPLOAD PHOTOS</h1>
-        </div>
         <div className="grid gap-4">
           <div className='grid grid-cols-2 gap-4'>
             <div className="grid gap-2">
