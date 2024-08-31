@@ -85,7 +85,7 @@ const Section2 = () => {
               ))}
             </div>
           ))}
-          <div className="absolute -bottom-4 -left-4 bg-black p-4">
+          <div className="absolute -bottom-8 left-1 bg-black p-4">
             <p className="text-white text-xl">
               CHECK OUT
               <br />

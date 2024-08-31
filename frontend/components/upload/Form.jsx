@@ -10,14 +10,14 @@ import { Loader2 } from "lucide-react"
 const Form = ({ formData, handleInputChange, handleTagsChange, handleUpload, loading }) => {
   return (
     <div className="flex items-center justify-center py-12">
-      <form onSubmit={handleUpload} className="mx-auto grid w-[450px] gap-6">
+      <form onSubmit={handleUpload} className="mx-auto grid w-full gap-6">
         <div className="grid gap-2">
-          <h1 className="text-4xl font-bold">UPLOAD PHOTOS</h1>
+          <h1 className="max-w-2xl mb-4 text-3xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black">UPLOAD PHOTOS</h1>
         </div>
         <div className="grid gap-4">
           <div className='grid grid-cols-2 gap-4'>
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">Email <span className='text-red-600'>*</span></Label>
               <Input
                 id="email"
                 type="email"
@@ -28,7 +28,7 @@ const Form = ({ formData, handleInputChange, handleTagsChange, handleUpload, loa
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="name">Full name</Label>
+              <Label htmlFor="name">Full name <span className='text-red-600'>*</span></Label>
               <Input
                 id="name"
                 type="text"
@@ -40,7 +40,7 @@ const Form = ({ formData, handleInputChange, handleTagsChange, handleUpload, loa
             </div>
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="photoContext">Photo context</Label>
+            <Label htmlFor="photoContext">Photo context <span className='text-red-600'>*</span></Label>
             <Textarea
               id="photoContext"
               placeholder='e.g. "me and my friend joe"'
@@ -50,7 +50,7 @@ const Form = ({ formData, handleInputChange, handleTagsChange, handleUpload, loa
             />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="tags">Tags</Label>
+            <Label htmlFor="tags">Tags <span className='text-red-600'>*</span></Label>
             <Select
               isMulti
               name="tags"
