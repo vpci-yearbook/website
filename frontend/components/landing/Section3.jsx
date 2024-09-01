@@ -40,7 +40,7 @@ const Section3 = () => {
                 <br />
                 PHOTOS!
                 <span className='mt-2 flex flex-row items-center gap-2'>
-                  <div className='bg-white h-[0.2px] w-16'/>
+                  <span className='bg-white h-[0.2px] w-16'/>
                   <CircleArrowRight color='white'/>
                 </span>
               </p>

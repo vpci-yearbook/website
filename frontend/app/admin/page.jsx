@@ -16,7 +16,7 @@ const AdminPage = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            axios.get('/api/images/unapproved-images', { params: { password } })
+            axios.get('/api/images/unapproved-images')
                 .then((res) => setPhotos(res.data))
                 .catch((error) => {
                     console.log(error);

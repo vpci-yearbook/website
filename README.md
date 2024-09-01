@@ -37,6 +37,10 @@ How do we fix these problems?
 4. Alumni, parents, etc.
  - Can easily check up on how the school's doing these days
 
+## Demo
+
+[Demo vid (no sound)](https://www.youtube.com/watch?v=Yj6oiaN0P3U)
+
 ## Getting Started
 
 Open the repository. Then:

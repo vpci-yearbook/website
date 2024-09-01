@@ -22,13 +22,13 @@ const Upload = () => {
     const newFiles = Array.from(event.target.files);
     setFiles((prevFiles) => {
       const uniqueFiles = new Map();
-      [...prevFiles, ...newFiles].forEach((file) => {
+      [...(prevFiles ?? []), ...newFiles].forEach((file) => {
         uniqueFiles.set(file.name, file);
       });
       return Array.from(uniqueFiles.values());
     });
   };
-      
+        
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setFormData(prevData => ({

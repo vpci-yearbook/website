@@ -39,7 +39,7 @@ const Uploader = ({ files, handleFileChange, setFiles }) => {
           ) : (
             <>
               {files.map((file, index) => (
-                <div key={index} className="flex items-center space-x-4 rounded-md border p-4">
+                <div key={index} className="flex items-center space-x-4 rounded-md border p-4 my-2">
                   <FileText />
                   <div className="flex-1 space-y-1">
                     <p className="text-sm font-medium leading-none">

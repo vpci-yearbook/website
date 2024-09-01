@@ -95,6 +95,7 @@ const Photos = ({ selectedTags, scrollPosition }) => {
                     className="p-2 cursor-pointer"
                     onClick={() => router.push(`/gallery/${image.file_id}`)}
                   >
+                    {console.log(`${ngrokUrl}/images/${image.file_id}/preview`)}
                     <LazyLoadImage
                       src={`${ngrokUrl}/images/${image.file_id}/preview`}
                       alt={image.filename}

@@ -12,7 +12,6 @@ const Gallery = () => {
   return (
     <div>
       <Nav />
-      <Header />
       <div className='md:p-20 mx-auto block md:grid md:grid-cols-[1fr_3fr] md:gap-4'>
         <Filter selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
         <Photos selectedTags={selectedTags} />
